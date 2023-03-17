@@ -1,0 +1,78 @@
+
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class treeMap {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String state, capital;
+		Scanner sc = new Scanner(System.in);
+		TreeMap<String, String> tmap = new TreeMap<>();
+		
+		while(true) {
+			System.out.println("*****************************************TREEMAP***********************************************");
+			System.out.print("1.Create\n2.Display\n3.Search\n4.Remove\n5.Update\n6.Size\n7.Clear\n8.Exit"
+					+ "\nEnter Your Choice : ");
+			int ch = sc.nextInt();
+			if(ch==1) {
+				System.out.print("Enter State name : ");
+				state = sc.next();
+				System.out.print("Enter Capital name : ");
+				capital = sc.next();
+				tmap.put(state, capital);
+				System.out.println("1 Data has entered");
+				
+			}else if(ch==2) {
+				System.out.println("Displaying Records");
+				for(Map.Entry<String, String> e : tmap.entrySet()) {
+					if(tmap.isEmpty()) {
+						System.out.println("Hash Map is Empty!!!");
+					}else {
+						
+						System.out.println("State is : "+e.getKey()+" "+ "capital is :"+e.getValue());
+					}
+				}
+			}else if(ch==3) {
+				System.out.print("Enter state name to search");
+				state = sc.next();
+				
+				if(tmap.containsKey(state)) {
+					System.out.println("State is : "+state+" capital is : "+tmap.get(state));
+				}else {
+					System.out.println("Not found");
+				}
+				
+			}else if(ch==4) {
+				System.out.print("Enter state name to delete ");
+				state = sc.next();
+				tmap.remove(state);
+				System.out.println("Data Removed!!!");
+				
+				
+			}else if(ch==5) {
+				System.out.print("Enter State name : ");
+				state = sc.next();
+				System.out.print("Enter Capital name : ");
+				capital = sc.next();
+				tmap.replace(state, capital);
+				System.out.println("Replaced state is "+state+ " capital is : "+tmap.get(state));
+			}else if(ch==6) {
+				System.out.println("Size of the map is : "+tmap.size());
+			}else if(ch==7) {
+				tmap.clear();
+				System.out.println("TreeMap Data is cleared");
+			}else if(ch==8) {
+				System.out.println("Thank You");
+				break;
+			}
+		
+		
+		
+		
+		
+		}
+	}
+
+}
